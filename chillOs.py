@@ -156,25 +156,25 @@ command = "False"
 
 
 while foreverloop ==  True:
-   lastcommand = command
-   is_pswrdcorrect = False
-   command = str(input(f"\nC:/chillOS/{username}@github.codespaces/shell: "))
-   print(f"Your command: {command}\n")
+    lastcommand = command
+    is_pswrdcorrect = False
+    command = str(input(f"\nC:/chillOS/{username}@github.codespaces/shell: "))
+    print(f"Your command: {command}\n")
 
 
-   if command == "list_commands":
+    if command == "list_commands":
        print(list_commands())
-   elif command == "datetimef":
+    elif command == "datetimef":
        print(datetimef())
-   elif "sudo_newpswrd(" and ")" in command:
+    elif "sudo_newpswrd(" and ")" in command:
       parts = [part.strip() for part in command[14:].split(",")]
       print(sudo_newpswrd(parts[0], parts[1][:-1]))
-   elif "sudo_renameuser(" and ")" in command:
+    elif "sudo_renameuser(" and ")" in command:
        parts = [part.strip() for part in command[16:].split(",")]
        print(sudo_renameuser(parts[0], parts[1][:-1]))
-   elif command == "info":
+    elif command == "info":
        print(info())
-   elif command == "powoff":
+    elif command == "powoff":
        shutoff = input("Shutting down deletes all data forever. Do you wish to continue? y/n: ")
        if shutoff == "y":
            print("shutting down...\n")
@@ -182,60 +182,60 @@ while foreverloop ==  True:
            break
        else:
            print("OK, not shutting off.")
-   elif command == "sudo_last":
+    elif command == "sudo_last":
        print(pswrd_attempt(input("input password: ")))
        if is_pswrdcorrect == True:
            print(lastcommand)
        else:
            print("command cannot run.")
-   elif "add(" and ")" in command:
+    elif "add(" and ")" in command:
        parts = [part.strip() for part in command[4:].split(",")]
        print(add(int(parts[0]), int(parts[1][:-1])))
-   elif "sub(" and ")" in command:
+    elif "sub(" and ")" in command:
        parts = [part.strip() for part in command[4:].split(",")]
        print(sub(int(parts[0]), int(parts[1][:-1])))
-   elif "mult(" and ")" in command:
+    elif "mult(" and ")" in command:
        parts = [part.strip() for part in command[5:].split(",")]
        print(mult(int(parts[0]), int(parts[1][:-1])))
-   elif "div(" and ")" in command:
+    elif "div(" and ")" in command:
        parts = [part.strip() for part in command[4:].split(",")]
        print(div(int(parts[0]), int(parts[1][:-1])))
-   elif command == "file_create":
+    elif command == "file_create":
        nam=input("File Name: ").lower()
        file_create(nam)
-   elif command == "file_edit":
+    elif command == "file_edit":
        na=input("File name:")
        if na in file_name:
            file_data[file_name.index(na)]=prompt(default=file_edit(na))
        else:
             print("File entered doesnt exist")
-   elif command == "file_view":
+    elif command == "file_view":
        na=input("File name:")
        if na in file_name:
            print(file_data[file_name.index(na)])
        else:
            print("File entered doesnt exist")
-   elif command == "file_rename":
+    elif command == "file_rename":
        file_rename()
-   elif command == "sudofile_create":
+    elif command == "sudofile_create":
        pswrd_attempt(input("Enter password: "))
        sudofile_create(input("File name: "))
-   elif command == "sudofile_edit":
+    elif command == "sudofile_edit":
        pswrd_attempt(input("Enter password: "))
        na=input("File name: ")
        if na in sudofile_name:
            sudofile_data[sudofile_name.index(na)]=prompt(default=sudofile_edit(na))
        else:
             print("File entered doesnt exist")
-   elif command == "sudofile_view":
+    elif command == "sudofile_view":
        pswrd_attempt(input("Enter password: "))
        na=input("File name:")
        if na in sudofile_name:
            print(sudofile_data[sudofile_name.index(na)])
        else:
            print("File entered doesnt exist")
-   elif command == "sudofile_create":
+    elif command == "sudofile_create":
        pswrd_attempt(input("Enter password: "))
        sudofile_create(input("File name: "))
-   else:
+    else:
        print("Error: command does not exist.")
