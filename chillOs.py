@@ -22,7 +22,7 @@ lastcommand = "False"
 
 # function for password attempts
 
-
+#ZACK
 def pswrd_attempt(attempt):
    global is_pswrdcorrect
 
@@ -39,20 +39,20 @@ def pswrd_attempt(attempt):
 
 #files here
 
-
+#JACOB
 def file_create(nam):
    file_name.append(nam)
    file_data.append("")
    print("File created")
 
-
+#JACOB
 def file_edit(na):
    if na in file_name:
        return file_data[file_name.index(na)]
    else:
        print("Not a valid file")
 
-
+#JACOB
 def file_rename():
    na=input("Old name: ")
    if na in file_name:
@@ -61,20 +61,20 @@ def file_rename():
    else:
        print("File chosen doesn't exist")
 
-
+#JACOB
 def sudofile_create(nam):
    sudofile_name.append(nam)
    sudofile_data.append("")
    print("File created")
 
-
+#JACOB
 def sudofile_edit(na):
    if na in sudofile_name:
        return sudofile_data[sudofile_name.index(na)]
    else:
        print("Not a valid file")
 
-
+#JACOB
 def sudofile_rename():
    na=input("Old name: ")
    if na in sudofile_name:
@@ -87,16 +87,16 @@ def sudofile_rename():
 
 # misc here
 
-
+#ZACK
 def list_commands():
    return f"THERE ARE 28 TOTAL COMMANDS.\n\nTYPE: FILES\n\nfile_create\tcreates a new file.\nfile_rename\trenames a file.\nfile_edit\tallows you to write to a file.\nfile_view\tallows you to read a file's contents.\nsudofile_create\tcreates a new private file, which requires a password to read and write to.\nsudofile_rename\trenames a private file.\nsudofile_edit\tallows you to write to a private file, but requires a password.\nsudofile_view\tallows you to read a private file's contents, but requires a password to access.\nsudo_wipe(password)\tdeletes all files and data.\ndir\tshows directory with all filenames.\nstor\tShows amount of storage left (x/5 normal files & y/2 private files)\n\nTYPE: MISC\n\nlist_commands\tlists all available commands.\ndatetimef\treturns the date and time.\nsudo_newpswrd(oldpswrd, newpswrd)\tallows you to create a new password.\nsudo_renameuser(newname, password)\tallows the user to rename themselves.\nsudo_last\tprints the previous command.\npowoff\tshuts down the OS.\n\nTYPE: FUNCTIONAL/CALCULATOR\n\nadd(x, y)\tadds 2 numbers\nsub(x, y)\tsubtracts one number from another\nmult(x, y)\tmultiplies 2 numbers.\ndiv(x, y)\tdivides one number by another.\nsqrt(num)\ttakes the square root of a number\nexp(x, power)\tmultiplies a number by itself a set amount of times.\nmod(x, y)\tfinds the remainder of a division equation.\nbase64(input)\tconverts an input to base64 binary.\n"
 
-
+#ZACK
 def datetimef():
    utc_now = datetime.now(timezone.utc)
    return f"UTC: {utc_now.strftime("%Y-%m-%d %H:%M:%S")}"
 
-
+#ZACK
 def sudo_newpswrd(oldpswrd, newpswrd):
    global pswrd
 
@@ -107,7 +107,7 @@ def sudo_newpswrd(oldpswrd, newpswrd):
    else:
        return "Sorry, wrong password."
 
-
+#ZACK
 def sudo_renameuser(pswrdcheck, newuser):
    global pswrd
    global username
@@ -117,11 +117,11 @@ def sudo_renameuser(pswrdcheck, newuser):
    else:
        return "password incorrect."
 
-
+#ZACK
 def info():
    return f"chiilOS copyright Zack & Jacob co 2026 Voorhees High School, Glen Gardener, NJ.\n\nJacob: File directories.\n\nZackary: system funtionality and misc commands.\n\nchillOS ver. beta 0.6.1"
 
-
+#ZACK
 # calc commands
 
 
@@ -147,14 +147,14 @@ def div(a, b):
 
 #start OS
 
-
+#ZACK
 print(f"Hello, {username}, the time and date is {utc_time}.\n\nUse ‘list_commands’ for the command list!")
 
 
 # command checker
 command = "False"
 
-
+#JACOB AND ZACK
 while foreverloop ==  True:
     lastcommand = command
     is_pswrdcorrect = False
